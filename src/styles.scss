@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+// COLORS
+
+
+$primary-color: #730301;
+$secondary-color: #D58764;
+$text-color: #333;
+$gray:#767676;
+$light-gray:#E4E4E4;
+$light-red: #EB5757;
+$background1: #F9F9F9;
+
+// Fonts
+$font-family-base: 'Arial, sans-serif';
+$font-size-base: 16px;
+
+// Spacing
+$spacing-unit: 1rem;
+$side-space: .5rem;
+
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }  
+
+body{
+    
+    
+}    
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}

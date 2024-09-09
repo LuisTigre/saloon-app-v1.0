@@ -1,0 +1,230 @@
+@import '../../../styles.scss';
+
+// VARIABLES
+$header-max-width: 425px;
+$header-min-width: 320px;
+$header-height-mobile: 50px; // Most common height for mobile
+$header-height-tablet: 50px; // Common height for tablets
+$header-height-desktop: 55px; // Common height for desktops
+$nav-item-height: 15px;
+$side-space: 0.5rem;
+
+// MOBILE-FIRST BASE STYLES (applies to small screens)
+header {
+  width: 100%;
+  min-width: $header-min-width;
+  max-width: $header-max-width;
+  margin: 0 auto;
+
+  height: $header-height-mobile;
+  min-height: $header-height-mobile;
+  max-height: $header-height-mobile;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2020;
+  // transform: translateY(0);
+  // transition: transform .3s ease;
+  // position: absolute;
+  border-bottom: .5px solid $primary-color;
+
+  .header-content {
+    width: 100%;
+    margin: 0 $side-space;
+    height: $header-height-mobile;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    nav {
+      width: 100%;
+
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+        gap: 15px;
+        position: relative;
+
+        li {
+
+           &.logo-container{
+                flex: 1;
+           }
+
+          a {
+            div {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: $header-height-mobile;
+
+              p {
+                font-size: x-small;
+                text-align: start;
+              }
+
+              svg {
+                max-width: 22px;
+                max-height: 22px;
+              }
+
+              img {
+                max-width: 70px;
+                max-height: 25px;
+              }
+
+              &.logo {
+                max-width: 200px;
+                display: grid;
+                grid-template-columns: 4fr 2fr;
+                img {
+                  width: 100%;
+                  height: auto;
+                }
+              }
+
+              &.profile {
+                display: flex;
+                gap: 2px;
+
+                img {
+                  border-radius: 50%;
+                  object-fit: cover;
+                }
+
+                p {
+                  width: max-content;
+                  max-width: 3rem;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                  cursor: pointer;
+                }
+              }
+
+              &.notification {
+                position: relative;
+                display: flex;
+
+                  .notification-count {
+                    position: absolute;
+                    top: 12px;
+                    left: 12px;
+                    background-color: #c00;
+                    color: white;
+                    border-radius: 22px;
+                    padding: 0px 4px;
+                    font-size: 12px;
+                    text-align: center;
+                    font-weight: 400;
+                    display: inline-block;
+                    min-width: 8px;
+                    height: 16px;
+                    max-width: 18px;
+                    line-height: 16px;
+                    
+                  }
+                
+              }
+            }
+          }
+        }
+        
+      }
+    }
+  }
+}
+
+// MEDIA QUERY FOR TABLETS AND UP (min-width: 768px)
+@media (min-width: 768px) {
+  header {
+    height: $header-height-tablet;
+    min-height: $header-height-tablet;
+    max-height: $header-height-tablet;
+
+    .header-content {
+      height: $header-height-tablet;
+
+      .collapse{
+        display: none;
+      }
+
+      nav ul li a div {
+        height: $header-height-tablet;
+
+        svg {
+          max-width: 40px;
+          max-height: 40px;
+        }
+
+        img {
+          max-width: 100px;
+          max-height: 40px;
+        }
+
+        &.logo {
+          max-width: 300px;
+        }
+
+        &.profile {
+          p {
+            max-width: 4rem;
+          }
+        }
+
+        &.notification::after {
+          right: 100px;
+          top: 25px;
+        }
+      }
+    }
+  }
+}
+
+// MEDIA QUERY FOR DESKTOPS AND UP (min-width: 1024px)
+@media (min-width: 1024px) {
+  header {
+    height: $header-height-desktop;
+    min-height: $header-height-desktop;
+    max-height: $header-height-desktop;
+    max-width: 1200px;
+
+    .header-content {
+      margin: 0 $side-space;
+      height: $header-height-desktop;
+
+      nav ul li a div {
+        svg {
+          max-width: 50px;
+          max-height: 50px;
+        }
+
+        img {
+          max-width: 120px;
+          max-height: 50px;
+        }
+
+        &.logo {
+          max-width: 350px;
+        }
+
+        &.profile {
+          p {
+            max-width: 5rem;
+          }
+        }
+
+        &.notification::after {
+          right: 110px;
+          top: 30px;
+        }
+      }
+    }
+  }
+}
