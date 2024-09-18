@@ -63,7 +63,7 @@ export class TimeslotComponent implements OnInit{
   } 
 
 
-  getDate(date : Date): string{
+  setDateToString(date : Date): string{
     let hour = date.getHours().toString().length == 1 ? '0'+date.getHours() : date.getHours();
     let min = date.getMinutes() === 0? "00" : date.getMinutes();
   
