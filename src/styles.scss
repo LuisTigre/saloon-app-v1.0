@@ -1,38 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 // COLORS
-
-
 $primary-color: #730301;
 $secondary-color: #D58764;
 $text-color: #333;
-$gray:#767676;
-$light-gray:#E4E4E4;
+$gray: #767676;
+$light-gray: #E4E4E4;
 $light-red: #EB5757;
 $background1: #F9F9F9;
+$unvailable-color: #f5f5f5;
 
 // Fonts
-$font-family-base: 'Arial, sans-serif';
+$font-family-base: 'Poppins', sans-serif;
 $font-size-base: 16px;
+$title-size: 14px;
 
-// Spacing
-$spacing-unit: 1rem;
-$side-space: .5rem;
+// VARIABLES WIDTH AND HEIGHT
+$page-max-width: 768px;
+$page-min-width: 320px;
 
-
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
+*, *::before, *::after, html, body {
     box-sizing: border-box;
-  }  
-
-body{
-    
-    
-}    
-
-ul{
-    list-style: none;
+    margin: 0px;
+    padding: 0px;
 }
 
+html{
+    overflow: auto;
+}
+
+body {
+    font-family: $font-family-base;
+    height: 100vh;
+    max-height: 100vh;
+    min-height: 100vh;
+    // background-color: purple;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    min-width: $page-min-width;
+    margin: 0 auto;
+    // background-color: #64d580;
+}
+
+header {
+    // height: 15vh;  // Adjust header height as needed
+    width: 100%;
+    background-color: green; // Example
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    // visibility: hidden;
+}
+
+main {
+    flex-grow: 1;  // This makes the main content grow and take the remaining space
+    width: 100%;
+    height: 70%;
+    overflow-y: auto;
+    margin-top: 60px;
+      // Offset the height of the fixed header
+    // background-color: yellow;  // Example
+   
+}
+
+footer {
+    // height: 15vh;  // Footer height
+    width: 100%;
+    margin: 0 auto;
+    // background-color: green;  // Example
+    // position: fixed;
+    // bottom: 0;
+    // left: 0;
+    // z-index: 100;
+    flex-grow: 3;
+}
+
+ul{
+    list-style-type: none;
+}
 a{
     text-decoration: none;
+    color: $gray
 }

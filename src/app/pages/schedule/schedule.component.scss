@@ -1,0 +1,24 @@
+@import '../../../styles.scss';
+
+main{
+    
+    .schedule{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-between;
+        // align-items: center;
+        // background-color: aqua;
+
+        gap:  20px;
+        height: 100%;
+        padding-top: 20px;
+        h2{
+            color: $primary-color;
+            text-align: center;
+            font-size: $title-size;
+        }
+
+    }
+
+}

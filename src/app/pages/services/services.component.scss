@@ -1,0 +1,48 @@
+@import '../../../styles.scss';
+main{
+    padding-top: 30px;
+    // background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    h2{
+        color: $primary-color;
+        text-align: center;
+        font-size: $title-size;
+    }
+
+    .menu{
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 140px;
+        gap: 10px;
+        padding: 10px;
+        // border: 1px solid red;
+
+        div{
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 5px solid $secondary-color;
+            gap: 5px;
+            svg{
+                width: 90px;
+            }
+            p{
+                text-align: center;
+                padding: 10px;
+                font-size: .8rem;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 800;
+                color: gray
+            }
+        }
+    }
+}

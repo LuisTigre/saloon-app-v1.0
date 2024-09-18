@@ -1,0 +1,48 @@
+@import '../../../styles.scss';
+
+.footer{
+    // border: 1px solid red;
+    width: 100vw;
+    min-width: $page-min-width;
+    max-width: $page-max-width;
+    background-color: $primary-color;
+    height: 100%;
+    max-height: 80px;
+    min-height: 80px;
+    margin-bottom: 0px;
+    background-image: url(../../../assets/img/Miss_Laura_Empty_background.png);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;    
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    flex-grow: 20;
+
+    .rights{
+        p{
+            font-family: Poppins;
+            font-size: .5rem;
+            color: whitesmoke;
+        }
+    }
+
+    .contacts{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 25px;
+        div{
+            svg{
+                width: 20px;
+            }
+        }
+    }
+
+    
+}
+

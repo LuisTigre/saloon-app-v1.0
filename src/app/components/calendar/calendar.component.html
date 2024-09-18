@@ -1,0 +1,21 @@
+<div class="calendar">
+    <div class="calendar-header">
+      <button (click)="prevMonth()"><<</button>
+      <span>{{ currentMonth | date: 'MMMM yyyy' }}</span>
+      <button (click)="nextMonth()">>></button>
+    </div>
+    <div class="days-of-week">
+      <div *ngFor="let day of daysOfWeek">{{ day }}</div>
+    </div>
+    <div class="calendar-grid">
+      
+      <div class="day-cell" *ngFor="let day of calendarDays" 
+           [class.empty]="day.date === null"
+           [class.today]="isToday(day) === true"
+           [class.unvailable]="isAnvailable(day) === true"
+          (click)="selectDate(day)">
+        <span *ngIf="day.date !== null">{{ day.date }}</span>
+      </div>
+    </div>
+  </div>
+  
