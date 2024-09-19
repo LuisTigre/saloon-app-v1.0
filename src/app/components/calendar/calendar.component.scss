@@ -58,13 +58,20 @@
         box-sizing: border-box;
 
         &.unvailable{
-          background-color: $unvailable-color;
-          border: 1px solid $unvailable-color;
+          background-color: $light-gray;
+          border: 1px solid $light-gray;
+          pointer-events: none; 
+          cursor: default; 
         }
   
         &.today {
+          color: $secondary-color;
+          font-weight: bold;
+        }
+        
+        &.selected {
           background-color: $secondary-color;
-          color: #fff;
+          color: white;
           border: 1px solid $secondary-color;
           font-weight: bold;
         }

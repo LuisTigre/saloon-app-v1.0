@@ -10,10 +10,11 @@
     <div class="calendar-grid">
       
       <div class="day-cell" *ngFor="let day of calendarDays" 
-           [class.empty]="day.date === null"
-           [class.today]="isToday(day) === true"
+           [class.empty] ="day.date === null"
+           [class.today] ="isToday(day) === true"
            [class.unvailable]="isAnvailable(day) === true"
-          (click)="selectDate(day)">
+           [class.selected] ="selectedDay === day.date"
+           (click)="onDateSelect(day)">
         <span *ngIf="day.date !== null">{{ day.date }}</span>
       </div>
     </div>

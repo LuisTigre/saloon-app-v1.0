@@ -67,9 +67,9 @@
                 }
     
                 &.unvailable{
-                    background-color: $unvailable-color;
-                    color: $unvailable-color;
-                    border: .5px solid transparent;
+                    background-color: $light-gray;
+                    pointer-events: none; // Prevent clicks
+                    cursor: default; // Change cursor to default for unclickable cells
                 }
 
                 &.selected{

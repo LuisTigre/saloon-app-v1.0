@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Import CommonModule
 
 @Component({
@@ -15,6 +15,9 @@ export class CalendarComponent implements OnInit {
   currentMonth: Date = new Date();
   daysOfWeek: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   calendarDays: Array<{ date: number | null; day: number; available: boolean }> = [];
+  selectedDay: number | null = null;
+
+  @Output() dateChange: EventEmitter<Date> = new EventEmitter<Date>();
   
   ngOnInit(): void {
     this.updateCalendar();
@@ -51,8 +54,12 @@ export class CalendarComponent implements OnInit {
    
   }
 
-  selectDate(day: { date: number | null }): void {
+  onDateSelect(day: { date: number | null }): void {
     if (day.date !== null) {
+      this.selectedDay = day.date
+      this.dateChange.emit(new Date(this.currentMonth.getFullYear(), this.currentMonth.getMonth(), day.date));
+
+
       console.log(`Selected date: ${day.date}-${this.currentMonth.getMonth() + 1}-${this.currentMonth.getFullYear()}`);
     }
   }

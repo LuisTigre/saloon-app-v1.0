@@ -3,8 +3,8 @@
     <main class="content">
         <div class="schedule">
             <h2>Choose Time</h2>
-            <app-calendar/>
-            <app-timeslot/>
+            <app-calendar (dateChange)="onDateChange($event)"/>
+            <app-timeslot [selectedDate]="selectedDate"/>
         </div>
     </main>
     <app-footer></app-footer>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface TimeSlot {
@@ -16,7 +16,8 @@ interface TimeSlot {
 })
 
 export class TimeslotComponent implements OnInit{
-  serviceDuration: number = 30 * 60 * 1000; // 30 minutes in milliseconds
+  @Input() selectedDate: Date | null = null;
+  serviceDuration: number = 44 * 60 * 1000; // 30 minutes in milliseconds
   operatingHours: TimeSlot;
   unbookableSlots: Array<TimeSlot> = [];
   availableSlots: Array<TimeSlot> = [];
@@ -39,28 +40,37 @@ export class TimeslotComponent implements OnInit{
   showAvailableTimeSlots(): void {
     const startMillis = this.operatingHours.start.getTime();
     const endMillis = this.operatingHours.end.getTime();
-
     let currentStart = startMillis;
-
-    while ((currentStart + this.serviceDuration) <= endMillis) {
+  
+    while (currentStart + this.serviceDuration <= endMillis) {
       const slotStart = new Date(currentStart);
       const slotEnd = new Date(currentStart + this.serviceDuration);
-
+  
       // Check if this slot overlaps with any unbookable slots
-      const isBookable = !this.unbookableSlots.some(unbookableSlot => 
+      const overlappingUnbookableSlot = this.unbookableSlots.find(unbookableSlot => 
         (slotStart < unbookableSlot.end) && (slotEnd > unbookableSlot.start)
       );
-
-      if (isBookable) {
+  
+      if (overlappingUnbookableSlot) {
+        // Slot overlaps with an unbookable slot, mark accordingly
+        if (slotStart < overlappingUnbookableSlot.start) {
+          // Add available slot before the unbookable slot
+          this.availableSlots.push({ start: slotStart, end: overlappingUnbookableSlot.start, bookable: true });
+        }
+  
+        // Add unbookable slot
+        this.availableSlots.push({ start: overlappingUnbookableSlot.start, end: overlappingUnbookableSlot.end, bookable: false });
+  
+        // Move currentStart to the end of the unbookable slot
+        currentStart = overlappingUnbookableSlot.end.getTime();
+      } else {
+        // Slot does not overlap with any unbookable slots
         this.availableSlots.push({ start: slotStart, end: slotEnd, bookable: true });
+        currentStart += this.serviceDuration; // Move to the next slot
       }
-
-      currentStart += this.serviceDuration; // Move to the next slot
     }
-
-    // // For demonstration purposes, log available slots
-    // console.log(this.availableSlots);
-  } 
+  }
+  
 
 
   setDateToString(date : Date): string{
@@ -69,6 +79,8 @@ export class TimeslotComponent implements OnInit{
   
     return `${hour}:${min}`;
   }
+
+
 
 
   selectTimeSlot(event: any): void {
@@ -84,6 +96,12 @@ export class TimeslotComponent implements OnInit{
   
    
     selectedElement.classList.add('selected');
+  }
+  
+  calculateSlotWidth(slot: TimeSlot): number {
+    const totalOperatingTime = this.operatingHours.end.getTime() - this.operatingHours.start.getTime();
+    const slotDuration = slot.end.getTime() - slot.start.getTime();
+    return (slotDuration / totalOperatingTime) * 100; // Returns the percentage width
   }
   
   

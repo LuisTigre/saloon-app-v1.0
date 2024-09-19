@@ -1,13 +1,16 @@
 
 <div class="timeslot">
-    <h5>Sat, 14 September 2024</h5>
+    <h5>{{ selectedDate | date: 'EEE, d  MMMM  y' }}</h5>
     <div class="slots-wrapper">
         <div *ngFor="let slot of availableSlots" class="slot">
             <!-- <div class="time">{{getDate(slot.start)}}</div> -->
             <div 
                 [attr.data-timeslot]="setDateToString(slot.start)+'-'+setDateToString(slot.end)" 
                 (click)="selectTimeSlot($event)" 
-                class="info">
+                class="info"
+                [class.unvailable]="!slot.bookable"
+                [attr.clickable]="slot.bookable"
+                >
                 {{setDateToString(slot.start)}} - {{setDateToString(slot.end)}}
             </div>
             

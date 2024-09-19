@@ -11,5 +11,15 @@ import { TimeslotComponent } from '../../components/timeslot/timeslot.component'
   styleUrl: './schedule.component.scss'
 })
 export class ScheduleComponent {
+  selectedDate: Date | null = null;
+  selectedTime: string | null = null;
+
+  onDateChange( newDate: Date){
+    this.selectedDate = newDate;
+  }
+
+  onTimeChange(newTime: string){
+    this.selectedTime = newTime;
+  }
 
 }
