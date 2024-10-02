@@ -1,0 +1,147 @@
+@import '../../../styles.scss';
+
+.schedule-details{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5px;
+    padding: 8px 4px;
+    // border: 1px solid #ddd;
+    box-sizing: border-box;    
+    // background-color: green;
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+
+    .table-wrapper{
+        width: 100%;
+        overflow-y: auto;
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;   
+    
+            th,td{
+                border: 1px solid #ddd;
+                padding: 3px 6px;
+                font-weight: normal;
+                text-align: center;
+                border-top: transparent;
+                border-bottom: transparent;
+            }
+    
+            thead{
+                
+                th{
+                    border: transparent;
+
+                    .details{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        height: 35px;
+                        width: 100%;
+
+                        h5{
+                            color: $primary-color;
+                            text-wrap: nowrap;
+                        }
+                            
+                        .controllers{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+
+                            button{
+                                border: none;
+                            }                            
+                        }
+                    }
+                }
+                
+            }
+    
+    
+        }
+    }
+
+   
+ 
+    .view-opt {
+        display: flex;
+        justify-content: space-between; /* Evenly distribute buttons */
+        align-items: center;
+        font-size: 10px;
+        color: black;
+        gap: 5px;
+        padding: 1px 10px;
+        overflow-y: auto;
+    
+    
+        button {
+        background-color: transparent; /* Transparent background */
+        border: none; /* No border */      
+        cursor: pointer;
+        padding: 3px 8px;
+            
+    
+        &:hover {
+            background-color: $secondary-color; /* Darker shade on hover */
+            transform: translateY(-2px); /* Lift effect on hover */
+            color: white;
+            border-radius: 30%;
+        }
+    
+        &:active {
+            transform: translateY(0); /* Reset effect on click */
+        }
+    }
+
+    .label-switch {
+        display: flex;
+        align-items: center;
+        color: black;
+        cursor: pointer; /* Change cursor on hover */
+        
+        input[type="checkbox"] {
+        display: none; /* Hide the default checkbox */
+        }
+    
+        .switch {
+            position: relative;
+            width: 40px; /* Width of the switch */
+            height: 20px; /* Height of the switch */
+            background-color: #ccc; /* Background color for the switch */
+            border-radius: 20px; /* Round corners for switch */
+            transition: background-color 0.3s; /* Smooth transition for background color */
+            margin-right: 10px; /* Space between the switch and label text */
+        
+            &:before {
+                content: '';
+                position: absolute;
+                width: 18px; /* Width of the switch knob */
+                height: 18px; /* Height of the switch knob */
+                background-color: white; /* Color of the knob */
+                border-radius: 50%; /* Round knob */
+                top: 1px; /* Position the knob */
+                left: 1px; /* Position the knob */
+                transition: transform 0.3s; /* Smooth transition for the knob */
+            }
+        }
+    
+        /* Change styles when the checkbox is checked */
+        input[type="checkbox"]:checked + .switch {
+        background-color: $secondary-color; /* Change switch background when checked */
+        }
+    
+        input[type="checkbox"]:checked + .switch:before {
+        transform: translateX(20px); /* Move knob to the right when checked */
+        }
+      }
+        
+    }
+  
+
+}

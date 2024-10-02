@@ -8,16 +8,18 @@ interface TimeSlot {
 }
 
 @Component({
-  selector: 'app-timeslot',
+  selector: 'app-schedule-details',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './timeslot.component.html',
-  styleUrls: ['./timeslot.component.scss']
+  templateUrl: './scheduleDetails.component.html',
+  styleUrls: ['./scheduleDetails.component.scss']
 })
 
-export class TimeslotComponent implements OnInit{
+export class ScheduleDetailsComponent implements OnInit{
   @Input() selectedDate: Date | null = null;
   @Input() schedule: any;
+  hours: string[] = [];
+
   
   selectedTimeslot: string | null = null;
   serviceDuration: number = 45 * 60 * 1000; // 30 minutes in milliseconds
@@ -39,6 +41,7 @@ export class TimeslotComponent implements OnInit{
 
   ngOnInit(): void {
     this.showAvailableTimeSlots();
+    this.generateHours();
   }
   
   showAvailableTimeSlots(): void {
@@ -103,7 +106,13 @@ export class TimeslotComponent implements OnInit{
     const baseWidth = 700; // Base width in px
     return baseWidth * (percentage / 100); // Scale the width proportionally
   }
-  
+
+  generateHours(): void {
+    for (let i = 6; i < 24; i++) {
+      const hour = i < 10 ? `${i}:00` : `${i}:00`;
+      this.hours.push(hour);
+    }
+  }  
   
   
   

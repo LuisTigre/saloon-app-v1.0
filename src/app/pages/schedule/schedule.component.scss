@@ -9,7 +9,7 @@ main{
         // justify-content: space-between;
         // align-items: center;
         // background-color: aqua;
-
+        
         gap:  20px;
         height: 100%;
         padding-top: 20px;
@@ -18,7 +18,19 @@ main{
             text-align: center;
             font-size: $title-size;
         }
-
+        
+        button{
+            width: 40%;
+            align-self: center;
+            padding: 8px 0;
+            border-radius: 5px;
+            border-color: $gray;
+            color: $gray;
+            font-weight: bold;
+            margin-top: 5%;
+        }
+        
+        
     }
 
 }

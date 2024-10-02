@@ -1,0 +1,67 @@
+<div class="schedule-details">
+    <div class="table-wrapper">
+
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th colspan="3">
+                        <div class="details">
+                            <h5>September, 2024</h5>
+                            <div class="controllers">
+                                <button><</button>
+                                <p>Week 1</p>
+                                <button>></button>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <th></th> <!-- Empty header for the time column -->
+                    <th>Su</th>
+                    <th>Mo</th>
+                    <th>Tu</th>
+                    <th>We</th>
+                    <th>Th</th>
+                    <th>Fr</th>
+                    <th>Sa</th>
+                </tr>
+                <tr>
+                    <th></th> 
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop through hours 00h to 23h -->
+                <tr *ngFor="let hour of hours">
+                    <th>{{ hour }}</th> <!-- Side header for hours -->
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="view-opt">
+        <button data-label="Day">Day</button>
+        <button data-label="Week">Week</button>
+        <label class="label-switch">
+            <input type="checkbox" id="default">
+            <span class="switch"></span> <!-- Custom switch -->
+            Default Sched.
+        </label>
+    </div>
+    
+</div>
