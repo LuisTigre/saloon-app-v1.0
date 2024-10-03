@@ -1,0 +1,104 @@
+@import "../../../styles.scss";
+
+:host {
+  display: block;
+  margin: 20px;
+
+
+  ::ng-deep .fc .fc-toolbar-title {
+    font-size: 10px;
+    margin: 0px;
+   }
+
+   ::ng-deep .fc {
+    height: 300px;
+   }
+
+  // Style for FullCalendar buttons
+  ::ng-deep .fc .fc-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    display: inline-block;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 1.5;
+    padding: 0;  // Added padding for better button size
+    text-align: center;
+    user-select: none;
+    vertical-align: middle;
+    cursor: pointer;     // Add pointer to make buttons interactive
+    transition: background-color 0.3s ease; // Smooth transition effect
+  }
+
+  // Primary button styling (used for active buttons)
+  ::ng-deep .fc .fc-button-primary {
+    background-color: transparent;     // Assuming $primary-color is defined in your styles.scss
+    border: none;
+    outline: none;
+    box-shadow: none;
+    color: black;
+
+    &:hover {
+      background-color:transparent; // Hover effect to darken button
+      color: $primary-color;
+      font-weight: bold;
+      border: none;
+      outline: none;
+      box-shadow: none;
+    }
+   
+  }
+
+  ::ng-deep .fc .fc-button-primary:not(:disabled).fc-button-active, .fc .fc-button-primary:not(:disabled):active {
+    background-color: transparent;
+    border-color: transparent;
+    color: $secondary-color;
+    outline: none;
+    box-shadow: none;
+    font-size: 12px;
+  }
+
+  // Button group styling
+  ::ng-deep .fc .fc-button-group {         // Your requested background color
+    display: inline-flex;
+    flex-direction: row;
+    gap: 5px;
+    vertical-align: middle;
+    border-radius: 0.25em;
+    overflow: hidden;  // Ensure border radius is applied correctly
+  }
+
+  ::ng-deep .fc table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    font-size: 10px;
+    font-weight: 500;
+ }
+ ::ng-deep .fc .fc-col-header-cell-cushion {
+    display: flex;
+    flex-direction: column;
+    padding: 2px 10px;    
+}
+
+::ng-deep .fc .fc-timegrid-axis-cushion {
+    font-size: 7px;
+    font-weight: bold;
+}
+
+::ng-deep .fc .fc-timegrid-axis-cushion, .fc .fc-timegrid-slot-label-cushion {
+    padding: 0px 4px;
+    // background-color: red;
+}
+
+
+::ng-deep .fc .fc-timegrid-slot-label-cushion::before{
+    // display: inline-block;
+    // white-space: nowrap;
+    // text-align: right;
+    
+}
+
+ 
+}

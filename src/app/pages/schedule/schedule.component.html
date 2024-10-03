@@ -1,36 +1,38 @@
 <div class="container" [class.dark-background]="modalOpen">
     <app-header></app-header>
     <main class="content">
-        <div class="schedule">
+      <div class="schedule">
         <h2>Choose Time</h2>
-            <app-calendar 
-                [schedule]="schedule" 
-                (triggleModal)="handleModalOpen()"
-                (dateChange)="onDateChange($event)"
-            />
-                       
-            <app-timeslot [schedule]="schedule" [selectedDate]="selectedDate"/>
-            <button>Continue</button>
 
-            <app-modal 
-                [open]="modalOpen" 
-                [title]="'Weekly Schedule'"
-                (triggerModal)="handleModalClose()"
-        >                
-                <app-calendar 
-                    [schedule]="schedule" 
-                    [weekCalendar]="'1'"                     
-                    (triggleModal)="handleModalOpen()"                    
-                    (dateChange)="onDateChange($event)"
-                                        
-                />
-                <app-schedule-details 
-                    [schedule]="schedule" 
-                    [selectedDate]="selectedDate"
-                />
-            </app-modal>
-        </div>
+        <app-fcalendar 
+            [schedule]="schedule"
+            (triggleModal)="handleModalOpen()"
+            (dateChange)="onDateChange($event)">
+        </app-fcalendar>
+
+  
+        <app-timeslot [schedule]="schedule" [selectedDate]="selectedDate"></app-timeslot>
+        <button>Continue</button>
+  
+        <!-- <app-modal 
+          [open]="modalOpen" 
+          [title]="'Weekly Schedule'"
+          (triggerModal)="handleModalClose()">
+          
+          <app-fcalendar 
+            [schedule]="schedule"
+            [weekCalendar]="'1'"
+            (triggleModal)="handleModalOpen()"
+            (dateChange)="onDateChange($event)">
+          </app-fcalendar>
+  
+          <app-schedule-details 
+            [schedule]="schedule" 
+            [selectedDate]="selectedDate">
+          </app-schedule-details>
+        </app-modal> -->
+      </div>
     </main>
     <app-footer></app-footer>
-</div>
-
+  </div>
+  

@@ -2,22 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { ScheduleService } from '../../services/schedule.service';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
-import { CalendarComponent } from '../../components/calendar/calendar.component';
+import { FcalendarComponent } from '../../components/fcalendar/fcalendar.component';
 import { TimeslotComponent } from '../../components/timeslot/timeslot.component';
 import { ModalComponent } from '../../components/modal/modal.component';
 import { ScheduleDetailsComponent } from '../../components/scheduleDetails/scheduleDetails.component';
+
 @Component({
   selector: 'app-schedule',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, CalendarComponent, TimeslotComponent, ModalComponent, ScheduleDetailsComponent],
+  imports: [HeaderComponent, FooterComponent, FcalendarComponent, TimeslotComponent, ModalComponent, ScheduleDetailsComponent],
   templateUrl: './schedule.component.html',
-  styleUrl: './schedule.component.scss'
+  styleUrls: ['./schedule.component.scss']
 })
-export class ScheduleComponent {
+export class ScheduleComponent implements OnInit {
   selectedDate: Date | null = null;
-  selectedTime: string | null = null;
-  modalOpen: boolean = true;
-
+  modalOpen: boolean = false;
   schedule: any;
 
   constructor(private scheduleService: ScheduleService) {}
@@ -26,22 +25,16 @@ export class ScheduleComponent {
     this.schedule = this.scheduleService.getScheduleData();
   }
 
-  onDateChange( newDate: Date){
+  onDateChange(newDate: Date) {
     this.selectedDate = newDate;
   }
 
-  onTimeChange(newTime: string){
-    this.selectedTime = newTime;
-  }
-
   handleModalOpen(): void {
-    this.modalOpen = true
+    this.modalOpen = true;
   }
 
-  
-  handleModalClose(): void{
+  handleModalClose(): void {
     this.modalOpen = false;
-
   }
 
 }

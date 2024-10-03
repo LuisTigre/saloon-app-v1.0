@@ -152,7 +152,25 @@ export class ScheduleService {
           "note": "Special Event"
         }
       ]
-    }
+    },
+    "events":[
+      {
+        title: 'Meeting',
+        start: '2024-10-05T10:00:00',
+        end: '2024-10-05T11:00:00'
+      },
+      {
+        title: 'Conference',
+        start: '2024-10-11T13:00:00',
+        end: '2024-10-11T15:00:00'
+      },
+      {
+        title: 'Lunch',
+        start: '2024-10-07T12:00:00',
+        end: '2024-10-07T13:00:00'
+      }
+    ]
+  
   }
 
   constructor() { }
