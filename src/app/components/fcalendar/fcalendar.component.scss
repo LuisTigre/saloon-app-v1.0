@@ -100,5 +100,25 @@
     
 }
 
+::ng-deep .fc-daygrid-day-bg .unavailable-day {
+  background-color: #d3d3d3; /* Gray color for unavailable days */
+  opacity: 0.5; /* Optional: To make it similar to the 'today' highlight */
+}
+
+::ng-deep .fc-timegrid-col .unavailable-day {
+  background-color: #d3d3d3;
+  opacity: 0.5;
+}
+
+::ng-deep .fc-day-unavailable {
+  background-color: #d3d3d3 !important; /* Ensure it covers the entire day */
+  opacity: 1;
+}
+
+::ng-deep .fc .fc-day-today {
+  background-color:  rgba(213, 136, 100, 0.123)
+}
+
+
  
 }

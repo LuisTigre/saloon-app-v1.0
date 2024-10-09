@@ -155,9 +155,33 @@ export class ScheduleService {
     },
     "events":[
       {
+        title: '',
+        start: '2024-10-10',
+        allDay: true, // This marks the event as a full-day event.
+        rendering: 'background', // This makes it appear as a background event.
+        color: '#d3d3d3', // Customize the color to gray to indicate unavailability.
+        classNames: ['fc-day-unavailable']
+      },
+      {
+        title: '',
+        start: '2024-10-08',
+        allDay: true, // This marks the event as a full-day event.
+        rendering: 'background', // This makes it appear as a background event.
+        color: '#d3d3d3', // Customize the color to gray to indicate unavailability.
+        classNames: ['fc-day-unavailable']
+      },
+      {
+        title: '',
+        start: '2024-10-23',
+        allDay: true, // This marks the event as a full-day event.
+        rendering: 'background', // This makes it appear as a background event.
+        color: '#d3d3d3', // Customize the color to gray to indicate unavailability.
+        classNames: ['fc-day-unavailable']
+      },
+      {
         title: 'Meeting',
         start: '2024-10-05T10:00:00',
-        end: '2024-10-05T11:00:00'
+        end: '2024-10-05T14:00:00'
       },
       {
         title: 'Conference',
@@ -169,8 +193,9 @@ export class ScheduleService {
         start: '2024-10-07T12:00:00',
         end: '2024-10-07T13:00:00'
       }
-    ]
-  
+    ],
+
+    "unavailableDays" : [new Date(2024, 10, 10), new Date(2024, 10, 15)]
   }
 
   constructor() { }
