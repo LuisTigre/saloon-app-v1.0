@@ -3,14 +3,10 @@
     <main class="content">
       <div class="schedule">
         <h2>Choose Time</h2>
-
-        <app-fcalendar 
-            [schedule]="schedule"
-            (triggleModal)="handleModalOpen()"
-            (dateChange)="onDateChange($event)">
+        
+        <app-fcalendar>
         </app-fcalendar>
 
-  
         <app-timeslot [schedule]="schedule" [selectedDate]="selectedDate"></app-timeslot>
         <button>Continue</button>
   
