@@ -20,5 +20,12 @@ export const routes: Routes = [
         (c) => c.ScheduleComponent
       ),
   },
+  {
+    path: 'def',
+    loadComponent: () =>
+      import('./components/default-layout/default-layout.component').then(
+        (c) => c.DefaultLayoutComponent
+      ),
+  },
   { path: '**', redirectTo: '' }  // Redirect unknown paths to home
 ];
