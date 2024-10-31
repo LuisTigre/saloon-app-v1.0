@@ -1,9 +1,9 @@
 
 <div class="timeslot">
-    <h5>{{ selectedDate | date: 'EEE, d  MMMM  y' }}</h5>
+    <!-- <h5>{{ selectedDate | date: 'EEE, d  MMMM  y' }}</h5> -->
     <div class="slots-wrapper">
-        <div *ngFor="let slot of availableSlots" class="slot" 
-            [ngStyle]="{ 'width': calculateSlotWidth(slot) + 'px' }"
+        <div *ngFor="let slot of availableSlots" class="slot"
+            
             [attr.data-timeslot]="getTimeSlotToString(slot)"           
             [class.unvailable]="!slot.bookable"
             [class.selected]="selectedTimeslot === getTimeSlotToString(slot)"
@@ -11,9 +11,8 @@
             <span (click)="selectTimeSlot(getTimeSlotToString(slot))">
                 {{getTimeSlotToString(slot)}}
             </span>
-            
         </div>
-        
     </div>   
-    
 </div>
+
+<!-- [ngStyle]="{ 'width': calculateSlotWidth(slot) + 'px' }" -->

@@ -1,34 +1,32 @@
-<div class="container" [class.dark-background]="modalOpen">
-    <app-header></app-header>
-    <main class="content">
+<app-default-layout>
       <div class="schedule">
-        <h2>Choose Time</h2>
-        
-        <app-fcalendar>
-        </app-fcalendar>
-
-        <app-timeslot [schedule]="schedule" [selectedDate]="selectedDate"></app-timeslot>
-        <button>Continue</button>
-  
-        <!-- <app-modal 
-          [open]="modalOpen" 
-          [title]="'Weekly Schedule'"
-          (triggerModal)="handleModalClose()">
-          
-          <app-fcalendar 
-            [schedule]="schedule"
-            [weekCalendar]="'1'"
-            (triggleModal)="handleModalOpen()"
-            (dateChange)="onDateChange($event)">
+        <div class="content">
+          <h3>Choose Time</h3>
+          <app-fcalendar>
           </app-fcalendar>
   
-          <app-schedule-details 
-            [schedule]="schedule" 
-            [selectedDate]="selectedDate">
-          </app-schedule-details>
-        </app-modal> -->
+          <app-timeslot [schedule]="schedule" [selectedDate]="selectedDate"></app-timeslot>
+          <button  class="continue">Continue</button>
+    
+          <!-- <app-modal 
+            [open]="modalOpen" 
+            [title]="'Weekly Schedule'"
+            (triggerModal)="handleModalClose()">
+            
+            <app-fcalendar 
+              [schedule]="schedule"
+              [weekCalendar]="'1'"
+              (triggleModal)="handleModalOpen()"
+              (dateChange)="onDateChange($event)">
+            </app-fcalendar>
+    
+            <app-schedule-details 
+              [schedule]="schedule" 
+              [selectedDate]="selectedDate">
+            </app-schedule-details>
+          </app-modal> -->
+        </div>
+        
       </div>
-    </main>
-    <app-footer></app-footer>
-  </div>
+    </app-default-layout>
   

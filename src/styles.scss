@@ -22,56 +22,25 @@ $title-size: 14px;
 $page-max-width: 768px;
 $page-min-width: 320px;
 
-// $header-height-mobile: 50px; 
-// $footer-height-mobile: 100px; 
-// $header-height-tablet: 60px; 
-// $header-height-desktop: 65px; 
-// $nav-item-height: 15px;
+
 $side-space: 0.1rem;
-
-// *, *::before, *::after, html, body {
-// box-sizing: border-box;
-// margin: 0px;
-// padding: 0px;
-// }
-
 
 html{
     overflow: hidden;
 }
-*,html, body{
+body{
+    height: 100vh;
     margin: 0;
-    padding: 0;
-    height: 100dvh;
-    width: 100dvw;    
-    box-sizing: border-box;
+    
 }
 
-.container{
-    // background-color: red;
+.container{    
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
-// .header, .footer{
-//     min-height: 50px;
-//     max-height: 100px;
-//     /* border: 1px solid black; */
-// }
-// header{
-//     // background-color: green;
-// }
-// main{
-//     background-color: yellow;
-//     // max-height: 86%;
-//     flex: 1;
-//     /* max-height: 86dvh; */
-// }
-// .footer{
-//     background-color:purple;
-//     color: white;
-// }
+
 
 ul{
     list-style-type: none;
@@ -80,6 +49,13 @@ a{
     text-decoration: none;
     color: $gray
 }
+
+h1, h2, h3, h4, h5, h6, span {
+    margin: 0;
+    padding: 0;
+    line-height: 1.2; /* Adjust as needed */
+}
+
 
 /* For screens with width between 1366px and 1920px (commonly 14-inch laptops) */
 @media (min-width: 1366px) and (max-width: 1920px) {
